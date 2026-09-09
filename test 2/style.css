@@ -1,0 +1,195 @@
+/* ---------- Base / Reset ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+/* ---------- Page Layout ---------- */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+
+.settings-card {
+  width: 100%;
+  max-width: 560px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- Header ---------- */
+.settings-header {
+  margin-bottom: 1.75rem;
+}
+
+.settings-header h1 {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  margin: 0 0 0.35rem 0;
+  color: #0f172a;
+}
+
+.settings-subtext {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+/* ---------- Form Layout ---------- */
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1e293b;
+}
+
+.required-flag {
+  color: #b91c1c;
+}
+
+/* ---------- Inputs ---------- */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  font: inherit;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #0f172a;
+  width: 100%;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover {
+  border-color: #94a3b8;
+}
+
+/* Visible keyboard focus state (not color-only: adds ring + outline) */
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="password"]:focus-visible,
+button:focus-visible,
+input[type="checkbox"]:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+/* Native validity styling — paired with icon + text, never color alone */
+input:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: #b91c1c;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23b91c1c'><path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11a.75.75 0 00-1.5 0v4a.75.75 0 001.5 0V7zm-.75 7a.9.9 0 100-1.8.9.9 0 000 1.8z' clip-rule='evenodd'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.65rem center;
+  background-size: 1.1rem;
+  padding-right: 2.25rem;
+}
+
+input:valid:not(:placeholder-shown) {
+  border-color: #15803d;
+}
+
+/* ---------- Hint Text ---------- */
+.field-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* ---------- Checkbox Row ---------- */
+.form-group-checkbox {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.form-group-checkbox input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  accent-color: #1d4ed8;
+}
+
+.form-group-checkbox label {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.checkbox-subtext {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* ---------- Actions ---------- */
+.form-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button[type="submit"] {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #1d4ed8;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: #1e40af;
+}
+
+button[type="submit"]:active {
+  background-color: #1e3a8a;
+}
+
+/* ---------- Responsive Breakpoints ---------- */
+
+/* Tablet and up: button no longer full-width */
+@media (min-width: 600px) {
+  button[type="submit"] {
+    width: auto;
+    min-width: 160px;
+  }
+}
+
+/* Desktop: slightly roomier field spacing */
+@media (min-width: 900px) {
+  .settings-form {
+    gap: 1.5rem;
+  }
+}
